@@ -1,9 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Article from "./Article";
-import { articles } from "./fixtures";
+import ArticleList from "./ArticleList";
 
-ReactDOM.render(
-  <Article article={articles[0]} />,
-  document.getElementById("root")
-);
+ReactDOM.render(<ArticleList />, document.getElementById("root"));

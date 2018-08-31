@@ -4,15 +4,17 @@ class Article extends Component {
   state = {
     showArticle: false
   };
+
   ShowHideArticle = () => {
     this.setState({ showArticle: !this.state.showArticle });
   };
+
   render() {
-    const { article } = this.props;
+    //const { title, text } = this.props;
+
     const startDisplay = (
       <div>
-        <h1>{article.title}</h1>
-        <p>{article.text}</p>
+        <p>{this.props.text}</p>
       </div>
     );
     return (
@@ -20,6 +22,7 @@ class Article extends Component {
         <button onClick={this.ShowHideArticle}>
           {!this.state.showArticle ? "ShowArticle" : "HideArticle"}
         </button>
+        <h2>{this.props.title}</h2>
         {this.state.showArticle ? startDisplay : null}
       </div>
     );

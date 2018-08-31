@@ -1,5 +1,5 @@
-export const articles = [
-  ({
+export default [
+  {
     id: "56c782f18990ecf954f6e027",
     date: "2016-06-09T15:03:23.000Z",
     title: "React Is Awesome!!!",
@@ -155,5 +155,5 @@ export const articles = [
     title: "Lorem Ipsum dolor",
     text:
       "Commodo laborum sit nostrud reprehenderit cupidatat officia laboris. Ipsum minim culpa in enim. Voluptate dolor ea irure nisi incididunt enim magna.\n\nCupidatat quis cillum velit culpa tempor esse irure nostrud ea consectetur officia fugiat irure qui. Enim quis officia do in. Velit veniam ipsum consequat aliqua duis voluptate. Minim nisi ex aute ad.\n\nNisi Lorem ex tempor adipisicing labore. Quis occaecat fugiat pariatur labore culpa cillum laboris. Labore occaecat ut laborum sit ex do sit. Deserunt consectetur elit aute laboris est deserunt officia ullamco sit laboris officia aliquip. Aliqua ut sunt nostrud voluptate excepteur quis incididunt Lorem ut."
-  })
+  }
 ];
