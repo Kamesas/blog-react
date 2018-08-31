@@ -9,7 +9,12 @@ const ArticleList = props => {
         <a href="/">React Blog</a>
       </h1>
       {articles.map(article => (
-        <Article key={article.id} title={article.title} text={article.text} />
+        <Article
+          key={article.id}
+          title={article.title}
+          text={article.text}
+          comments={article.comments}
+        />
       ))}
     </div>
   );

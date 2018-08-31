@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import CommentsList from "./CommentsList";
 
 class Article extends Component {
   state = {
@@ -10,20 +11,23 @@ class Article extends Component {
   };
 
   render() {
-    //const { title, text } = this.props;
+    const { title, text } = this.props;
 
     const startDisplay = (
       <div>
-        <p>{this.props.text}</p>
+        <p>{text}</p>
+        <CommentsList comment={this.props.comments} />
       </div>
     );
+
     return (
       <div>
         <button onClick={this.ShowHideArticle}>
           {!this.state.showArticle ? "ShowArticle" : "HideArticle"}
         </button>
-        <h2>{this.props.title}</h2>
+        <h2>{title}</h2>
         {this.state.showArticle ? startDisplay : null}
+        <hr />
       </div>
     );
   }
