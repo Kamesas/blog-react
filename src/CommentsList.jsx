@@ -2,8 +2,12 @@ import React, { Component } from "react";
 import Comments from "./Comments";
 
 class CommentsList extends Component {
+  static defaultProps = {
+    comment: []
+  };
+
   getComment = () => {
-    if (!this.props.comment || !this.props.comment.length === 0) {
+    if (!this.props.comment.length === 0) {
       return <p>No comments yet</p>;
     }
     return this.props.comment.map(item => (
