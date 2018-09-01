@@ -10,7 +10,7 @@ export default OriginalComponent =>
         <OriginalComponent
           {...this.props}
           {...this.state}
-          ShowHideArticle={this.ShowHideArticle}
+          ShowHideBtn={this.ShowHideArticle}
         />
       );
     }

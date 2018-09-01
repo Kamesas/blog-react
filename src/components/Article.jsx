@@ -15,7 +15,7 @@ class Article extends Component {
   };
 
   render() {
-    const { title, text } = this.props;
+    const { title, text, ShowHideBtn } = this.props;
 
     const startDisplay = (
       <div>
@@ -26,7 +26,7 @@ class Article extends Component {
 
     return (
       <div>
-        <button onClick={this.props.ShowHideArticle}>
+        <button onClick={ShowHideBtn}>
           {!this.props.showArticle ? "ShowArticle" : "HideArticle"}
         </button>
         <h2>{title}</h2>

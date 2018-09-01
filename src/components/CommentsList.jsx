@@ -19,7 +19,9 @@ class CommentsList extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.props.ShowHideArticle}>ShowComments</button>
+        <button onClick={this.props.ShowHideBtn}>
+          {!this.props.showArticle ? "ShowComments" : "HideComments"}
+        </button>
         {this.props.showArticle ? this.getComment() : null}
       </div>
     );
