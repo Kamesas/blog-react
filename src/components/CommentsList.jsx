@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import toggleOpen from "../decorators/toggleOpen";
 import Comments from "./Comments";
 
 class CommentsList extends Component {
@@ -16,8 +17,13 @@ class CommentsList extends Component {
   };
 
   render() {
-    return <div>{this.getComment()}</div>;
+    return (
+      <div>
+        <button onClick={this.props.ShowHideArticle}>ShowComments</button>
+        {this.props.showArticle ? this.getComment() : null}
+      </div>
+    );
   }
 }
 
-export default CommentsList;
+export default toggleOpen(CommentsList);
