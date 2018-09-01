@@ -1,7 +1,18 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import CommentsList from "./CommentsList";
 
 class Article extends Component {
+  static propTypes = {
+    // article: PropTypes.shape({
+    //   id: PropTypes.string.isRequired,
+    //   title: PropTypes.string.isRequired,
+    //   text: PropTypes.string
+    // }).isRequired
+    title: PropTypes.string.isRequired,
+    text: PropTypes.string
+  };
+
   state = {
     showArticle: false
   };

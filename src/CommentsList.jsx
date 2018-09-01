@@ -7,7 +7,7 @@ class CommentsList extends Component {
   };
 
   getComment = () => {
-    if (!this.props.comment.length === 0) {
+    if (!this.props.comment.length) {
       return <p>No comments yet</p>;
     }
     return this.props.comment.map(item => (
