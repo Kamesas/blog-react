@@ -1,6 +1,6 @@
 import React from "react";
 import Article from "./Article";
-import articles from "./fixtures";
+import articles from "../fixtures";
 
 const ArticleList = props => {
   return (
