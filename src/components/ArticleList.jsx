@@ -5,7 +5,7 @@ import articles from "../fixtures";
 const ArticleList = props => {
   return (
     <div>
-      <h1>
+      <h1 ref={node => console.log(node)}>
         <a href="/">React Blog</a>
       </h1>
       {articles.map(article => (
