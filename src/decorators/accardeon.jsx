@@ -17,6 +17,11 @@ export default OriginalComponent =>
     }
 
     toggleOpenArticle = id => ev => {
-      this.setState({ openArticleId: id });
+      ev && ev.preventDefault && ev.preventDefault();
+      if (this.state.openArticleId === id) {
+        this.setState({ openArticleId: null });
+      } else {
+        this.setState({ openArticleId: id });
+      }
     };
   };
