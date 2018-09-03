@@ -1,5 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import ArticleList from "./components/ArticleList";
+import App from "./components/App";
 
-ReactDOM.render(<ArticleList />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));

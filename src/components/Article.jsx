@@ -1,15 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import CommentsList from "./CommentsList";
-import toggleOpen from "../decorators/toggleOpen";
 
 class Article extends Component {
   static propTypes = {
-    // article: PropTypes.shape({
-    //   id: PropTypes.string.isRequired,
-    //   title: PropTypes.string.isRequired,
-    //   text: PropTypes.string
-    // }).isRequired
     title: PropTypes.string.isRequired,
     text: PropTypes.string
   };
@@ -37,4 +31,4 @@ class Article extends Component {
   }
 }
 
-export default toggleOpen(Article);
+export default Article;

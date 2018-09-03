@@ -1,23 +1,33 @@
-import React from "react";
+import React, { Component } from "react";
 import Article from "./Article";
 import articles from "../fixtures";
 
-const ArticleList = props => {
-  return (
-    <div>
-      <h1 ref={node => console.log(node)}>
-        <a href="/">React Blog</a>
-      </h1>
-      {articles.map(article => (
-        <Article
-          key={article.id}
-          title={article.title}
-          text={article.text}
-          comments={article.comments}
-        />
-      ))}
-    </div>
-  );
-};
+class ArticleList extends Component {
+  state = {
+    openArticleId: null
+  };
+
+  toggleOpenArticle = id => ev => {
+    this.setState({ openArticleId: id });
+    console.log(this.state.openArticleId);
+  };
+
+  render() {
+    return (
+      <div>
+        {articles.map(article => (
+          <Article
+            key={article.id}
+            title={article.title}
+            text={article.text}
+            comments={article.comments}
+            showArticle={article.id === this.state.openArticleId}
+            ShowHideBtn={this.toggleOpenArticle(article.id)}
+          />
+        ))}
+      </div>
+    );
+  }
+}
 
 export default ArticleList;
