@@ -1,17 +1,9 @@
 import React, { Component } from "react";
 import Article from "./Article";
 import articles from "../fixtures";
+import accardeon from "../decorators/accardeon";
 
 class ArticleList extends Component {
-  state = {
-    openArticleId: null
-  };
-
-  toggleOpenArticle = id => ev => {
-    this.setState({ openArticleId: id });
-    console.log(this.state.openArticleId);
-  };
-
   render() {
     return (
       <div>
@@ -21,8 +13,8 @@ class ArticleList extends Component {
             title={article.title}
             text={article.text}
             comments={article.comments}
-            showArticle={article.id === this.state.openArticleId}
-            ShowHideBtn={this.toggleOpenArticle(article.id)}
+            showArticle={article.id === this.props.openArticleId}
+            ShowHideBtn={this.props.toggleOpenArticle(article.id)}
           />
         ))}
       </div>
@@ -30,4 +22,4 @@ class ArticleList extends Component {
   }
 }
 
-export default ArticleList;
+export default accardeon(ArticleList);
