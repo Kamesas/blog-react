@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import fixtures from "../fixtures";
+import makeAnimated from "react-select/lib/animated";
 import Select from "react-select";
 
 class UserForm extends Component {
@@ -26,6 +27,9 @@ class UserForm extends Component {
             options={titles}
             value={this.state.selectTitile}
             onChange={this.handleChange}
+            components={makeAnimated()}
+            isMulti
+            placeholder="Выберите статью"
           />
         </div>
       </div>
