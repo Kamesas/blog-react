@@ -9,7 +9,12 @@ class App extends Component {
         <h1>
           <a href="/">React Blog</a>
         </h1>
-        <UserForm />
+
+        <div>
+          <UserForm />
+        </div>
+        <br />
+
         <ArticleList />
       </div>
     );
