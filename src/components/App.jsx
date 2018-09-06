@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ArticleList from "./ArticleList";
-import UserForm from "./UserForm";
+//import UserForm from "./UserForm";
 
 class App extends Component {
   render() {
@@ -10,10 +10,10 @@ class App extends Component {
           <a href="/">React Blog</a>
         </h1>
 
-        <div>
+        {/*<div>
           <UserForm />
         </div>
-        <br />
+        <br />*/}
 
         <ArticleList />
       </div>
