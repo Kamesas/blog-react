@@ -28,8 +28,11 @@ class Article extends Component {
         <h2>{title}</h2>
         <CSSTransitionGroup
           transitionName="article"
+          transitionAppear
           transitionEnterTimeout={300}
           transitionLeaveTimeout={500}
+          transitionAppearTimeout={500}
+          component="div"
         >
           {this.props.showArticle ? startDisplay : null}
         </CSSTransitionGroup>
