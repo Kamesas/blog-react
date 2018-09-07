@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import CommentsList from "./CommentsList";
+import CommentForm from "./CommentForm/CommentForm";
 import { CSSTransitionGroup } from "react-transition-group";
 import "./article.css";
 
@@ -16,7 +17,10 @@ class Article extends Component {
     const startDisplay = (
       <div>
         <p>{text}</p>
+
         <CommentsList comment={this.props.comments} />
+        <br />
+        <CommentForm />
       </div>
     );
 
