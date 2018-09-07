@@ -14,6 +14,9 @@ class Counter extends Component {
 
   hundleIncrement = () => {
     console.log("increment");
+    this.props.dispatch({
+      type: "INCREMENT"
+    });
   };
 }
 
