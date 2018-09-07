@@ -1,35 +1,38 @@
-import React, { Component, PropTypes } from 'react'
-import Select from 'react-select'
-import { connect } from 'react-redux'
-import { changeSelection } from '../../AC'
-import {mapToArr} from '../../helpers'
+import React, { Component } from "react";
+import fixtures from "../../fixtures";
+import makeAnimated from "react-select/lib/animated";
+import Select from "react-select";
 
-import 'react-select/dist/react-select.css'
+class UserForm extends Component {
+  state = {
+    selectTitile: null
+  };
 
-class SelectFilter extends Component {
-    static propTypes = {
-        articles: PropTypes.array.isRequired
-    };
-
-    handleChange = selected => this.props.changeSelection(selected.map(option => option.value))
-
-    render() {
-        const { articles, selected } = this.props
-        const options = articles.map(article => ({
-            label: article.title,
-            value: article.id
-        }))
-
-        return <Select
-            options={options}
-            value={selected}
-            multi={true}
+  render() {
+    const titles = fixtures.map(article => ({
+      value: article.id,
+      label: article.title
+    }));
+    return (
+      <div>
+        <div>
+          <Select
+            options={titles}
+            value={this.state.selectTitile}
             onChange={this.handleChange}
-        />
-    }
+            components={makeAnimated()}
+            isMulti
+            placeholder="Выберите статью"
+          />
+        </div>
+      </div>
+    );
+  }
+
+  handleChange = selectTitile => {
+    this.setState({ selectTitile });
+    console.log(`Option selected:`, selectTitile);
+  };
 }
 
-export default connect(state => ({
-    selected: state.filters.selected,
-    articles: mapToArr(state.articles.entities)
-}), { changeSelection })(SelectFilter)
+export default UserForm;

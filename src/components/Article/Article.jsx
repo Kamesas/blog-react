@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import CommentsList from "../CommentsList";
 import CommentForm from "../CommentForm/CommentForm";
+import Filters from "../Filters";
 import { CSSTransitionGroup } from "react-transition-group";
 import "./article.css";
 
@@ -17,7 +18,7 @@ class Article extends Component {
     const startDisplay = (
       <div>
         <p>{text}</p>
-
+        <Filters />
         <CommentsList comment={this.props.comments} />
         <br />
         <CommentForm />
@@ -30,6 +31,7 @@ class Article extends Component {
           {!this.props.showArticle ? "ShowArticle" : "HideArticle"}
         </button>
         <h2>{title}</h2>
+
         <CSSTransitionGroup
           transitionName="article"
           transitionAppear

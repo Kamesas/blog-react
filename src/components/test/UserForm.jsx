@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import fixtures from "../fixtures";
+import fixtures from "../../fixtures";
 import makeAnimated from "react-select/lib/animated";
 import Select from "react-select";
 
