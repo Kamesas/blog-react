@@ -9,9 +9,8 @@ class App extends Component {
         <h1>
           <a href="/">React Blog</a>
         </h1>
-        <Counter />
-        <hr />
         <ArticleList />
+        <Counter />
       </div>
     );
   }

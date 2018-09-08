@@ -27,10 +27,11 @@ class Article extends Component {
 
     return (
       <div>
+        <h2>{title}</h2>
         <button onClick={ShowHideBtn}>
           {!this.props.showArticle ? "ShowArticle" : "HideArticle"}
         </button>
-        <h2>{title}</h2>
+        <button onClick={this.hundleDelete}>Del</button>
 
         <CSSTransitionGroup
           transitionName="article"
@@ -47,6 +48,9 @@ class Article extends Component {
       </div>
     );
   }
+  hundleDelete = () => {
+    console.log("del");
+  };
 }
 
 export default Article;

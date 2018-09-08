@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import Article from "./Article/Article";
-import articles from "../fixtures";
+//import articles from "../fixtures";
 import accardeon from "../decorators/accardeon";
+import { connect } from "react-redux";
 
 class ArticleList extends Component {
   render() {
     return (
       <div>
-        {articles.map(article => (
+        {this.props.articles.map(article => (
           <Article
             key={article.id}
             title={article.title}
@@ -22,4 +23,10 @@ class ArticleList extends Component {
   }
 }
 
-export default accardeon(ArticleList);
+function mapStateToProps(state) {
+  return {
+    articles: state.articleReducer
+  };
+}
+
+export default connect(mapStateToProps)(accardeon(ArticleList));
