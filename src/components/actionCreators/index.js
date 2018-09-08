@@ -12,8 +12,9 @@ export function decrement() {
   };
 }
 
-export function delArticle() {
+export function delArticle(id) {
   return {
-    type: DELETE_ARTICLE
+    type: DELETE_ARTICLE,
+    payload: { id }
   };
 }

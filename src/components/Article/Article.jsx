@@ -4,6 +4,8 @@ import CommentsList from "../CommentsList";
 import CommentForm from "../CommentForm/CommentForm";
 import Filters from "../Filters";
 import { CSSTransitionGroup } from "react-transition-group";
+import { connect } from "react-redux";
+import { delArticle } from "../actionCreators/";
 import "./article.css";
 
 class Article extends Component {
@@ -49,8 +51,12 @@ class Article extends Component {
     );
   }
   hundleDelete = () => {
-    console.log("del");
+    this.props.delArticle(this.props.id);
+    console.log("del --- ", this.props.id);
   };
 }
 
-export default Article;
+export default connect(
+  null,
+  { delArticle }
+)(Article);

@@ -4,9 +4,7 @@ import articles from "../fixtures";
 export default (state = articles, action) => {
   switch (action.type) {
     case DELETE_ARTICLE:
-      return {
-        ...state
-      };
+      return state.filter(article => article.id !== action.payload.id);
 
     default:
       return state;
