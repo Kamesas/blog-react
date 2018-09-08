@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { increment } from "./actionCreators";
 
 class Counter extends Component {
   state = {};
@@ -14,9 +15,7 @@ class Counter extends Component {
 
   hundleIncrement = () => {
     console.log("increment");
-    this.props.dispatch({
-      type: "INCREMENT"
-    });
+    this.props.dispatch(increment());
   };
 }
 
