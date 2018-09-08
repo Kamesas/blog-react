@@ -1,9 +1,11 @@
+import { INCREMENT, DECREMENT } from "../CONSTANTS";
+
 export default (count = 0, action) => {
   const { type } = action;
   switch (type) {
-    case "INCREMENT":
+    case INCREMENT:
       return count + 1;
-    case "DECREMENT":
+    case DECREMENT:
       return count - 1;
 
     default:
