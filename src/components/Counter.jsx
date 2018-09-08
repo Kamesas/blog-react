@@ -1,21 +1,26 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { increment } from "./actionCreators";
+import { increment, decrement } from "./actionCreators";
 
 class Counter extends Component {
   state = {};
   render() {
     return (
       <div>
+        <button onClick={this.hundleDecrement}>-</button>
         <h2>{this.props.counter}</h2>
-        <button onClick={this.hundleIncrement}>-</button>
+        <button onClick={this.hundleIncrement}>+</button>
       </div>
     );
   }
 
   hundleIncrement = () => {
     console.log("increment");
-    this.props.dispatchIncrement();
+    this.props.increment();
+  };
+  hundleDecrement = () => {
+    console.log("decrement");
+    this.props.decrement();
   };
 }
 
@@ -26,7 +31,8 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-  dispatchIncrement: increment
+  increment,
+  decrement
 };
 
 export default connect(
