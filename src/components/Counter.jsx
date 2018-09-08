@@ -15,7 +15,7 @@ class Counter extends Component {
 
   hundleIncrement = () => {
     console.log("increment");
-    this.props.dispatch(increment());
+    this.props.dispatchIncrement();
   };
 }
 
@@ -25,4 +25,11 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Counter);
+const mapDispatchToProps = {
+  dispatchIncrement: increment
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Counter);
