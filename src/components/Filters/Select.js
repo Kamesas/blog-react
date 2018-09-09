@@ -1,38 +1,44 @@
 import React, { Component } from "react";
-import fixtures from "../../fixtures";
-import makeAnimated from "react-select/lib/animated";
 import Select from "react-select";
+import { connect } from "react-redux";
+import { changeSelection } from "../actionCreators";
+import makeAnimated from "react-select/lib/animated";
 
-class UserForm extends Component {
-  state = {
-    selectTitile: null
-  };
+//import 'react-select/dist/react-select.css'
+
+class SelectFilter extends Component {
+  handleChange = selected =>
+    this.props.changeSelection(selected.map(option => option.label));
+  // handleChange = selected =>
+  //   this.props.changeSelection(
+  //     selected.map(option => option)
+  //     //console.log(selected.map(option => option.value))
+  //   );
 
   render() {
-    const titles = fixtures.map(article => ({
-      value: article.id,
-      label: article.title
+    const { articles, selected } = this.props;
+    const options = articles.map(article => ({
+      label: article.title,
+      value: article.id
     }));
+
     return (
-      <div>
-        <div>
-          <Select
-            options={titles}
-            value={this.state.selectTitile}
-            onChange={this.handleChange}
-            components={makeAnimated()}
-            isMulti
-            placeholder="Выберите статью"
-          />
-        </div>
-      </div>
+      <Select
+        options={options}
+        value={selected}
+        isMulti
+        cacheOptions
+        onChange={this.handleChange}
+        components={makeAnimated()}
+      />
     );
   }
-
-  handleChange = selectTitile => {
-    this.setState({ selectTitile });
-    console.log(`Option selected:`, selectTitile);
-  };
 }
 
-export default UserForm;
+export default connect(
+  state => ({
+    selected: state.filters.selected,
+    articles: state.articleReducer
+  }),
+  { changeSelection }
+)(SelectFilter);

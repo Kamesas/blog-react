@@ -1,32 +1,34 @@
-import React from "react";
-import DayPicker from "react-day-picker";
+import React, { Component } from 'react'
+import DayPicker, { DateUtils } from 'react-day-picker'
+import { connect } from 'react-redux'
+import { changeDateRange } from '../actionCreators'
 
-import "react-day-picker/lib/style.css";
+import 'react-day-picker/lib/style.css';
 
-export default class BasicConcepts extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleDayClick = this.handleDayClick.bind(this);
-    this.state = {
-      selectedDay: undefined
-    };
-  }
-  handleDayClick(day) {
-    this.setState({ selectedDay: day });
-  }
-  render() {
-    return (
-      <div>
-        <DayPicker
-          onDayClick={this.handleDayClick}
-          selectedDays={this.state.selectedDay}
-        />
-        {this.state.selectedDay ? (
-          <p>You clicked {this.state.selectedDay.toLocaleDateString()}</p>
-        ) : (
-          <p>Please select a day.</p>
-        )}
-      </div>
-    );
-  }
+class DateRange extends Component {
+
+    handleDayClick = (day) => {
+        const { changeDateRange, range } = this.props
+        changeDateRange(DateUtils.addDayToRange(day, range))
+    }
+
+    render() {
+        const { from, to } = this.props.range;
+        const selectedRange = from && to && `${from.toDateString()} - ${to.toDateString()}`
+        return (
+            <div className="date-range">
+                <DayPicker
+                    ref="daypicker"
+                    selectedDays={ day => DateUtils.isDayInRange(day, { from, to }) }
+                    onDayClick={ this.handleDayClick }
+                />
+                {selectedRange}
+            </div>
+        );
+    }
+
 }
+
+export default connect(state => ({
+    range: state.filters.dateRange
+}), { changeDateRange })(DateRange)

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Article from "./Article/Article";
-//import articles from "../fixtures";
 import accardeon from "../decorators/accardeon";
 import { connect } from "react-redux";
 
@@ -24,10 +23,29 @@ class ArticleList extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    articles: state.articleReducer
-  };
-}
+// function mapStateToProps(state) {
+//   return {
+//     articles: state.articleReducer
+//   };
+// }
 
-export default connect(mapStateToProps)(accardeon(ArticleList));
+// export default connect(mapStateToProps)(accardeon(ArticleList));
+
+export default connect(({ filters, articleReducer }) => {
+  const {
+    selected,
+    dateRange: { from, to }
+  } = filters;
+
+  const filteredArticles = articleReducer.filter(article => {
+    const published = Date.parse(article.date);
+    return (
+      (!selected.length || selected.includes(article.id)) &&
+      (!from || !to || (published > from && published < to))
+    );
+  });
+
+  return {
+    articles: filteredArticles
+  };
+})(accardeon(ArticleList));
