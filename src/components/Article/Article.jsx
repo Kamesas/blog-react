@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import CommentsList from "../CommentsList";
 import CommentForm from "../CommentForm/CommentForm";
-import Filters from "../Filters";
 import { CSSTransitionGroup } from "react-transition-group";
 import { connect } from "react-redux";
 import { delArticle } from "../actionCreators/";
@@ -20,7 +19,6 @@ class Article extends Component {
     const startDisplay = (
       <div>
         <p>{text}</p>
-        <Filters />
         <CommentsList comment={this.props.comments} />
         <br />
         <CommentForm />
